@@ -1,0 +1,29 @@
+<%= simple_form_for @event, remote: true do |f| %>
+<ul class="form-style-1">
+  <div class="form-inputs">
+    <li>
+      <%= f.input :title, placeholder: 'Name of Event', label:false %>
+    </li>
+    <li>
+      <%= f.input :date_range, placeholder: 'Date Range', label:false,  input_html: { class: "form-control input-sm date-range-picker" } %>
+    </li>
+    <%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
+    <%= f.input_field :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
+    
+    <li>
+      <%= f.input :color, placeholder: 'Color', label:false, as: :select, collection: [['Bold Blue','#5484ed'], ['Blue','#a4bdfc'], ['Turquoise','#46d6db'],['Bold Green','#51b749'], ['Green','#7ae7bf'], ['Yellow','#fbd75b'],['Orange','#ffb878'], ['Pink','#ff887c'], ['Bold Red','#dc2127'], ['Purple','#dbadff'], ['Gray','#e1e1e1']]%>
+    </li>   
+  </div>
+  <div class="form-actions">
+    <li>
+      <%= f.button :submit %>
+      
+      <%= link_to 'Delete', 
+                  event, 
+                  method: :delete, 
+                  class: 'btn btn-danger', 
+                  data: { confirm: 'Are you sure?' }, 
+                  remote: true unless @event.new_record? %>
+    </li>
+  </div>
+<% end %>
