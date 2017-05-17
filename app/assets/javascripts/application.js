@@ -17,5 +17,5 @@
 //= require jquery-ui
 //= require moment
 //= require fullcalendar
-//= require date_range_picker
+//= require daterangepicker
 //= require_tree .

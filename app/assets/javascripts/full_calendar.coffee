@@ -27,15 +27,15 @@ initialize_calendar = ->
           url: event.update_url
           data: event_data
           type: 'PATCH'
-      eventResize: (event, delta, revertFunc) ->
-        event_data = event:
-          id: event.id
-          start: event.start.format()
-          end: event.end.format()
-        $.ajax
-          url: event.update_url
-          data: event_data
-          type: 'PATCH'
+      # eventResize: (event, delta, revertFunc) ->
+      #   event_data = event:
+      #     id: event.id
+      #     start: event.start.format()
+      #     end: event.end.format()
+      #   $.ajax
+      #     url: event.update_url
+      #     data: event_data
+      #     type: 'PATCH'
 
       eventClick: (event, jsEvent, view) ->
         $.getScript event.edit_url, ->

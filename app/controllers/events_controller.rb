@@ -27,7 +27,10 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
+    if @event.destroy
+      redirect_to root_path
+    end
+
   end
   
   private
@@ -36,7 +39,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:title, :date_range, :start, :end, :color, :date_range)
+      params.require(:event).permit(:title, :date_range, :start, :end, :color)
     end
 
 end
