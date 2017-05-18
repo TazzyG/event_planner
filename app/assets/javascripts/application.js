@@ -18,4 +18,5 @@
 //= require moment
 //= require fullcalendar
 //= require daterangepicker
+//= require recurring_select
 //= require_tree .

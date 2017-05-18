@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515234435) do
+ActiveRecord::Schema.define(version: 20170517215911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 20170515234435) do
     t.datetime "start"
     t.datetime "end"
     t.string   "color"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.boolean  "repeating_event"
+    t.string   "frequency"
+    t.integer  "every_n"
+    t.date     "repeat_ends_on"
+    t.integer  "number_of_repeats"
+  end
+
+  create_table "recurring_events", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_time"
+    t.text     "recurring"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
